@@ -1,0 +1,11 @@
+{
+  "name": "Mind the Guitar",
+  "short_name": "Mind the Guitar",
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#dc611b",
+  "background_color": "#fbf9f6",
+  "display": "browser"
+}
