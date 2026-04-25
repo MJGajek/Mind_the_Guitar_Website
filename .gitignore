@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node / build artifacts (not used here, but keep for safety)
+node_modules/
+dist/
+build/
+.cache/
+
+# Logs
+*.log
+
+# Local env
+.env
+.env.*
