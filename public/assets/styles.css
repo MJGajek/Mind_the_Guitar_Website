@@ -590,6 +590,10 @@ main { padding: 32px 24px 80px; }
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--brand); }
 .site-footer__links { display: flex; gap: 18px; flex-wrap: wrap; }
+.site-footer__social { display: flex; gap: 16px; align-items: center; }
+.site-footer__social a { display: inline-flex; color: var(--muted); transition: color 0.15s ease; }
+.site-footer__social a:hover { color: var(--brand); }
+.site-footer__social svg { fill: currentColor; }
 
 /* ─── Utilities ───────────────────────────────────────── */
 .visually-hidden {
