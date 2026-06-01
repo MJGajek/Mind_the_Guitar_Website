@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Privacy Notice — Mind the Guitar</title>
-  <meta name="description" content="Privacy Notice for the Mind the Guitar mobile app. Local-only data, no analytics, no ads. Last updated 2026-05-04.">
+  <meta name="description" content="Privacy Notice for the Mind the Guitar mobile app. Local-only data, no analytics, no ads. Last updated 2026-05-01.">
   <meta name="theme-color" content="#dc611b">
   <link rel="canonical" href="https://mindtheguitar.com/privacy">
   <link rel="stylesheet" href="/assets/styles.css">
@@ -35,8 +35,8 @@
 
       <p class="legal__meta">
         <strong>Effective Date:</strong> 2026-05-01 &middot;
-        <strong>Last Updated:</strong> 2026-05-04 &middot;
-        <strong>Version:</strong> 1.1
+        <strong>Last Updated:</strong> 2026-05-01 &middot;
+        <strong>Version:</strong> 1.0
       </p>
 
       <p>This Privacy Notice explains how the Mind the Guitar mobile application (the &ldquo;App&rdquo;) handles personal data when you use it. It is issued together with our <a href="/terms">Terms of Use</a>.</p>
@@ -45,7 +45,7 @@
 
       <h2>1. Local Data Only</h2>
       <p>Mind the Guitar is designed to operate offline and to keep your data on your device.</p>
-      <p>We do not maintain user accounts on our servers and we do not receive your personal data. Your profile, progress, settings, and related app data are stored locally on your device only.</p>
+      <p>We do not maintain user accounts on our servers and, except for the limited security telemetry described in Section 6, we do not receive your personal data. Your profile, progress, settings, and related app data are stored locally on your device only.</p>
 
       <h2>2. What the App Stores Locally</h2>
       <p>The App may store the following information locally on your device:</p>
@@ -76,20 +76,22 @@
       <p>We process the limited categories of data described above on the following legal bases:</p>
       <ul>
         <li><strong>Performance of a contract</strong> (Art. 6(1)(b) GDPR) — to provide the educational features you request when you use the App.</li>
+        <li><strong>Legitimate interests</strong> (Art. 6(1)(f) GDPR) — to protect the integrity and security of the App through freeRASP (see Section 9).</li>
         <li><strong>Consent</strong> (Art. 6(1)(a) GDPR) — granted by you through the operating system permission prompts when you enable microphone or photo library access.</li>
       </ul>
 
       <h2>8. No Tracking, No Analytics, No Ads</h2>
       <p>The App does not use cookies, web tracking, advertising identifiers (IDFA, GAID), third-party analytics SDKs, advertising or attribution SDKs, or any cross-app or cross-site tracking. We do not perform any user profiling, scoring, or automated decision-making within the meaning of Art. 22 GDPR.</p>
 
-      <h2>9. Third-Party Services</h2>
-      <p>The App does not transmit your personal data to third-party services. The App does not include third-party analytics, advertising, attribution, crash reporting, or anti-tampering SDKs that send data off the device.</p>
+      <h2>9. Third-Party Services — freeRASP (Talsec)</h2>
+      <p>To protect the App against tampering, reverse engineering, debugging, and execution on rooted or jailbroken devices, we use <strong>freeRASP</strong>, a runtime application self-protection library provided by Talsec (Talsec a.s., based in the Czech Republic, EU). freeRASP runs on your device and may transmit anonymous integrity signals (for example: detection of root/jailbreak, debugger, hooking frameworks, emulator, repackaging, or device-binding issues) to Talsec servers.</p>
+      <p>freeRASP does not transmit your profile data, learning data, audio, photos, advertising identifiers (IDFA, GAID), or any other content you create in the App. Talsec acts as our processor and processes the data within the European Economic Area. For further information, see Talsec's privacy documentation.</p>
 
       <h2>10. Data Retention</h2>
-      <p>Data stored on your device is retained for as long as the App is installed or until you delete it (see Section 12).</p>
+      <p>Data stored on your device is retained for as long as the App is installed or until you delete it (see Section 12). Anonymous integrity telemetry processed by freeRASP is retained according to Talsec's retention policy and is not linked to your identity.</p>
 
       <h2>11. Your Rights (GDPR Art. 15–22)</h2>
-      <p>Because your data stays on your device and we have no access to it, you can exercise most of your rights directly through the App:</p>
+      <p>Because most of your data stays on your device and we have no access to it, you can exercise most of your rights directly through the App:</p>
       <ul>
         <li><strong>Access and portability</strong> — your data is visible in the App (Profile, Stats) at any time.</li>
         <li><strong>Rectification</strong> — you can edit your display name and avatar in Profile.</li>
@@ -97,7 +99,7 @@
         <li><strong>Restriction and objection</strong> — you can disable microphone or photo permissions in your device settings, or stop using the App.</li>
         <li><strong>Withdrawal of consent</strong> — you can revoke microphone or photo library permissions at any time in your device's system settings, without affecting the lawfulness of processing carried out before withdrawal.</li>
       </ul>
-      <p>For any other privacy-related request, contact us at <a href="mailto:contact@mindtheguitar.com">contact@mindtheguitar.com</a>.</p>
+      <p>For requests related to security telemetry processed via freeRASP, contact us at <a href="mailto:contact@mindtheguitar.com">contact@mindtheguitar.com</a>.</p>
 
       <h2>12. How to Delete Your Data</h2>
       <p>You can delete your data at any time using one of the following methods:</p>
@@ -118,7 +120,7 @@
       <p>You also have the right to lodge a complaint with the supervisory authority of your country of residence.</p>
 
       <h2>14. Security</h2>
-      <p>Sensitive items such as integrity tokens are stored in the platform-provided secure storage (iOS Keychain / Android Keystore via flutter_secure_storage). We rely on the security mechanisms provided by your device's operating system (sandboxed app storage, OS-level encryption at rest). The App disables cleartext HTTP traffic on Android via a network security configuration. No security measure is perfect; you are responsible for keeping your device and operating system up to date.</p>
+      <p>Sensitive items such as integrity tokens are stored in the platform-provided secure storage (iOS Keychain / Android Keystore via flutter_secure_storage). We rely on the security mechanisms provided by your device's operating system (sandboxed app storage, OS-level encryption at rest). The App uses freeRASP to detect tampering and rooted/jailbroken environments, and disables cleartext HTTP traffic on Android via a network security configuration. No security measure is perfect; you are responsible for keeping your device and operating system up to date.</p>
 
       <h2>15. Subscriptions</h2>
       <p>The App may offer paid features or subscriptions through Apple App Store or Google Play.</p>
