@@ -128,6 +128,58 @@ git push
 # Cloudflare Pages auto-deploys in ~30 s
 ```
 
+## Analytics deletion endpoint (PostHog GDPR erasure)
+
+`functions/api/delete-analytics.js` is a **Cloudflare Pages Function** (deployed
+automatically with the site — no extra service). Route:
+
+```
+POST https://mindtheguitar.com/api/delete-analytics
+Body: { "distinct_id": "<the app's pseudonymous id>" }
+```
+
+The app calls it when the user taps **Reset Entire Profile**. The function
+holds the PostHog *personal* API key as an encrypted secret and turns the
+`distinct_id` into a PostHog "delete person + events" request. The key never
+ships inside the app.
+
+### One-time setup
+
+1. **Create the personal API key** in PostHog → Settings → *Personal API keys*
+   → *Create*. Scopes: **`person:read`** and **`person:write`** (write covers
+   delete). Copy the value once.
+2. Cloudflare dash → the Pages project → **Settings → Environment variables**
+   → add (Production **and** Preview):
+   - `POSTHOG_PERSONAL_API_KEY` → *(paste the key; mark as **Secret** / Encrypt)*
+   - `POSTHOG_PROJECT_ID` → `255629`
+   - `POSTHOG_HOST` → `https://eu.posthog.com`
+     *(management API host — NOT the ingestion host `eu.i.posthog.com`)*
+3. *(Optional, recommended)* Rate limiting:
+   - Either add a **Cloudflare Rate Limiting rule** on the path
+     `/api/delete-analytics` (dashboard → Security → WAF → Rate limiting), or
+   - Create a **KV namespace** and bind it to the Pages project as `DELETE_RL`
+     (Settings → Functions → KV namespace bindings). The function then enforces
+     ~10 requests/hour per IP on its own.
+4. Redeploy (any push to `main`, or *Retry deployment*).
+
+### Wiring the app to this endpoint
+
+Build the app with the endpoint injected (keeps the URL out of git; empty =
+feature disabled so dev builds never hit production):
+
+```
+--dart-define=POSTHOG_DELETE_ENDPOINT=https://mindtheguitar.com/api/delete-analytics
+```
+
+### Quick test
+
+```bash
+curl -i -X POST https://mindtheguitar.com/api/delete-analytics \
+  -H 'Content-Type: application/json' \
+  -d '{"distinct_id":"test-does-not-exist"}'
+# → 200 { "ok": true, "deleted": false }   (idempotent when no such person)
+```
+
 ## Linking from the app & stores
 
 - **App Store Connect** → App Privacy → Privacy Policy URL
