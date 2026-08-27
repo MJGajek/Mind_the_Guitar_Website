@@ -6,8 +6,8 @@ Google Play since 2024).
 
 - **No frameworks, no build step.** Pure HTML + one CSS file.
 - **No external requests.** The website itself loads no Google Fonts, analytics,
-  ads or trackers. (The app uses consent-based ad measurement via AppsFlyer —
-  see Section 8 of the Privacy Notice.)
+  ads or trackers. (The app uses consent-based product analytics via PostHog
+  and ad measurement via AppsFlyer and Meta — see Sections 8–9 of the Privacy Notice.)
 - **Hosted on Cloudflare Pages** (free plan), domain on Cloudflare DNS.
 
 ## Repository structure
